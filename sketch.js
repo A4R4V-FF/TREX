@@ -1,33 +1,37 @@
-var sea;
-var ship;
-var seaImg;
-var shipImg1;
-function preload(){
-seaImg = loadImage("sea.png");
-shipImg1 = loadAnimation("ship-1.png","ship-2.png");
+var btn_green ;
+var btn_red;
+
+var r = 0;
+var g = 0;
+var b = 0;
+function setup() {
+  createCanvas(400, 400);
+ btn_red = createButton("RED");
+ btn_red.position(100,50);
+ btn_red.mousePressed(red_bg);
+
+ btn_green = createButton("GREEN");
+ btn_green.position(200,50);
+ btn_green.mousePressed(green_bg);
 }
-
-function setup(){
-  createCanvas(400,400);
-  //spriteName = addImage(seaImg);
-  sea = createSprite(400,200);
-  background("blue");
-  sea.addImage(seaImg);
-  sea.velocityX = -5;
-  sea.scale = 0.4;
-  ship = createSprite(130,200,30,30);
-  ship.addAnimation( "movingShip" , shipImg1);
-  ship.scale = 0.3;
-}
-
-
 
 function draw() {
- background(0);
- sea.velocityX = -3;
-  if (seaImg.x<0) {
-    seaImg.x = sea.width/8;
-  
+ // background(30);
+  drawSprites();
+  background(r,g,b);
 }
-drawSprites();
+function red_bg()
+{
+ r = 255;
+ g = 0;
+ b = 0;
 }
+
+function green_bg()
+{
+ r = 0;
+ g = 255;
+ b = 0;
+}
+
+
