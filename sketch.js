@@ -4,7 +4,7 @@ var seaImg;
 var shipImg1;
 function preload(){
 seaImg = loadImage("sea.png");
-shipImg1 = loadAnimation("ship-1.png","ship-2.png","ship-3.png","ship-4.png");
+shipImg1 = loadAnimation("ship-1.png","ship-2.png");
 }
 
 function setup(){
@@ -23,11 +23,11 @@ function setup(){
 
 
 function draw() {
- backgroung(0);
+ background(0);
  sea.velocityX = -3;
   if (seaImg.x<0) {
-    seaImg.x = sea.width/2;
+    seaImg.x = sea.width/8;
   
 }
-
+drawSprites();
 }
