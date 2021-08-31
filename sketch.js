@@ -1,37 +1,27 @@
-var btn_green ;
-var btn_red;
 
-var r = 0;
-var g = 0;
-var b = 0;
-function setup() {
-  createCanvas(400, 400);
- btn_red = createButton("RED");
- btn_red.position(100,50);
- btn_red.mousePressed(red_bg);
+function preload(){
+  //pre-load images
+  runner_1 = loadImage("Runner-1.png","Runner-2.png");
+  road = loadImage("path.png");
+}
 
- btn_green = createButton("GREEN");
- btn_green.position(200,50);
- btn_green.mousePressed(green_bg);
+function setup(){
+  createCanvas(400,400);
+  //create sprites here
+  
+  Road = createSprite(200,100,400,20);
+  Road.addImage(road);
+  Road.velocityY = 4;
+  Road.scale = 1.2;
+  runner = createSprite(200,200,20,50);
+  runner.addImage(runner_1);
+  runner.scale = 0.1;
 }
 
 function draw() {
- // background(30);
-  drawSprites();
-  background(r,g,b);
+  background(0);
+if(Road.y>400){
+Road.y = height/2;
 }
-function red_bg()
-{
- r = 255;
- g = 0;
- b = 0;
+drawSprites();
 }
-
-function green_bg()
-{
- r = 0;
- g = 255;
- b = 0;
-}
-
-
